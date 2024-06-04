@@ -1,20 +1,15 @@
-public class BancoCc {
+public class BancoCc extends BancoConta{
 
-    public int agencia;
-    public int numero;
-    public double saldo;
+    public BancoCc(BancoCliente cliente) {
+		super(cliente);
+	}
 
-    public void sacar(){
-
-    }  
-    
-    public void depositar(){
-
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("Extrato Conta Corrente");
+        super.imprimirInfosComuns();
     }
 
-    public void transferir(){
-        
-    }
-
+  
     
 }

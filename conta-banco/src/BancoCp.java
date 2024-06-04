@@ -1,7 +1,14 @@
-public class BancoCp {
+public class BancoCp extends BancoConta{
     
-    public int agencia;
-    public int numero;
-    public double saldo;
-    
+    public BancoCp(BancoCliente cliente) {
+		super(cliente);
+	}
+
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("Extrato Conta Poupança");
+        super.imprimirInfosComuns();
+        
+    }
+
 }
