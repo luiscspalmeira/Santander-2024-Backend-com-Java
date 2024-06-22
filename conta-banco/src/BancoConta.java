@@ -9,6 +9,7 @@ public abstract class BancoConta implements BancoIConta{
     protected double saldo;
     protected BancoCliente cliente;
 
+    
     public BancoConta(BancoCliente cliente){
         this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
