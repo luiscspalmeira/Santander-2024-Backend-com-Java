@@ -20,14 +20,14 @@ public class Banco {
                     System.err.println("Saldo insuficiente.");
 
                 }else{
-                    cc.setValor(cc.getValor() + valor);
-                    if(cc.getConta().equalsIgnoreCase(contaSaida)){
-                        cc.setValor(cc.getValor() - valor);
-        
-                    }
+                    cc.setValor(cc.getValor() + valor);       
+                    
                 }
+                
             }
-            
+            if(cc.getConta().equalsIgnoreCase(contaSaida)){
+                cc.setValor(cc.getValor() - valor);
+            }
         }
 
     }
@@ -45,7 +45,7 @@ public class Banco {
 
         banco.exibirClientes();
 
-        banco.transferirValor("2859", "2860", 200);
+        banco.transferirValor("2859", "2860", 100);
 
         banco.exibirClientes();
     }
