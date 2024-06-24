@@ -1,9 +1,9 @@
 public class BancoContaCorrente extends BancoConta{
     
     
-    BancoContaCorrente(String agencia, String conta, String cliente, double valor){
+    BancoContaCorrente(BancoCliente bancoCliente, double valor){
         
-        super(agencia, conta, cliente, valor);
+        super(bancoCliente, valor);
     }   
     
 }

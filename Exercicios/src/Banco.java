@@ -15,21 +15,21 @@ public class Banco {
 
     public void transferirValor(String contaSaida, String contaEntrada, double valor){
         for(BancoContaCorrente cc : infoConta){
-            if(cc.getConta().equalsIgnoreCase(contaEntrada)){
+            if(cc.getConta().equalsIgnoreCase(contaSaida)){
                 if(cc.getValor() < valor){
                     System.err.println("Saldo insuficiente.");
 
                 }else{
-                    cc.setValor(cc.getValor() + valor);       
-                    
-                }
-                
-            }
-            if(cc.getConta().equalsIgnoreCase(contaSaida)){
-                cc.setValor(cc.getValor() - valor);
-            }
+                    cc.setValor(cc.getValor() - valor);    
+                    for(BancoContaCorrente cs : infoConta){
+                        if(cs.getConta().equalsIgnoreCase(contaEntrada)){
+                            cs.setValor(cs.getValor() + valor);                                         
+                        }                
+                    }                                       
+                }                
+            }            
         }
-
+        
     }
     
     public void exibirClientes(){
@@ -42,10 +42,11 @@ public class Banco {
 
         banco.adicionarCliente("3001", "2859", "luis", 200.50);
         banco.adicionarCliente("3001", "2860", "claudio", 50);
+        //banco.adicionarCliente("3001", "3001", "palmeira", 300);
 
         banco.exibirClientes();
 
-        banco.transferirValor("2859", "2860", 100);
+        banco.transferirValor("2859", "2860", 50);
 
         banco.exibirClientes();
     }

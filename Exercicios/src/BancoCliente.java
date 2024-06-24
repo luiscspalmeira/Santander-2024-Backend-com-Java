@@ -12,5 +12,27 @@ public class BancoCliente {
         this.cliente = cliente;
     }
 
+    public String getConta() {
+        return conta;
+    }
+
+
+    @Override
+    public String toString() {
+        return "BancoCliente [agencia=" + agencia + ", conta=" + conta + ", cliente=" + cliente + "]";
+    }
+
+
+
+    
+
+
+   
+
+
+    
+
+   
+
     
 }
