@@ -58,7 +58,7 @@ public class MainTeste {
         teste.adicionarClienteCc(new BancoCliente("3001", "2859", "luis"), 500);
         teste.adicionarClienteCp(new BancoCliente("3001", "2860", "claudio"), 400);
         teste.exibirClientes();
-        teste.transferirValor("2859", "2860", 100);
+        teste.transferirValor("2859", "2860", 200);
         teste.exibirClientes();
 
         

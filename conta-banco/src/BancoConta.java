@@ -1,66 +1,37 @@
-public abstract class BancoConta implements BancoIConta{
-
-    private static final int AGENCIA_PADRAO = 0;
-    private static int SEQUENCIAL = 1;
-
-
-    protected int agencia;
-    protected int numero;
-    protected double saldo;
-    protected BancoCliente cliente;
-
+public class BancoConta {
     
-    public BancoConta(BancoCliente cliente){
-        this.agencia = AGENCIA_PADRAO;
-        this.numero = SEQUENCIAL++;
-        this.cliente = cliente;
+    private String conta;
+    private double valor;
+    private BancoCliente bancoCliente;
+
+    public BancoConta(BancoCliente bancoCliente, double valor){  
+        this.bancoCliente = bancoCliente;
+        this.valor = valor;
     }
 
-    public int getAgencia(){
-        return agencia;
+    public String getConta(){
+        return conta;
     }
 
-    public int getNumero(){
-        return numero;
+    public double getValor() {
+        return valor;
     }
 
-    public double getSaldo() {
-        return saldo;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public BancoCliente getBancoCliente() {
+        return bancoCliente;
+    }
+
+    public void setBancoCliente(BancoCliente bancoCliente) {
+        this.bancoCliente = bancoCliente;
     }
 
     @Override
     public String toString() {
-        return "BancoConta [agencia=" + agencia + ", numero=" + numero + ", saldo=" + saldo + "]";
+        return "BancoConta [bancoCliente=" + bancoCliente + ", valor=" + valor + "]";
     }
-
-    @Override
-    public void sacar(double valor) {
-        saldo -= valor;
-    }
-
-    @Override
-    public void depositar(double valor) {
-        saldo += valor;
-    }
-
-    @Override
-    public void transferir(double valor, BancoConta contaDestino) {
-        this.sacar(valor);
-        contaDestino.depositar(valor);
-       
-    }
-
-    protected void imprimirInfosComuns(){
-
-        System.out.println(String.format("Titular: %s", this.cliente.getNome()));
-        System.out.println(String.format("Agência: %d", this.agencia));
-        System.out.println(String.format("Número: %d", this.numero));
-        System.out.println(String.format("Saldo: %.2f", this.saldo));
-        System.out.println("");
-    }
-    
+   
 }
